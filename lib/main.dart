@@ -1,3 +1,4 @@
+import 'package:dclm_radio/constants/app_color.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,22 +10,10 @@ class DCLMRadioApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'DCLM Radio',
-      home: Home(),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('DCLM Radio App'),
-      ),
+      theme: AppTheme.lightThemess,
     );
   }
 }
