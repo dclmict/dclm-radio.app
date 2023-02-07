@@ -1,13 +1,18 @@
-name: CI Workflow
+name: CI
 
 on: 
   push:
-    branches: [ "main" ]
-
+    branches:
+      - main
+      - feature/*
+  pull_request:
+      - main
+      - feature/*
   workflow_dispatch:
 
 jobs:
   test:
+    name: Test
     runs-on: macos-latest
     steps: 
       - name: Checkout
