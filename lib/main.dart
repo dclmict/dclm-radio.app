@@ -13,7 +13,7 @@ class DCLMRadioApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'DCLM Radio',
-      theme: AppTheme.lightThemess,
+      theme: AppTheme.darkTheme,
     );
   }
 }
