@@ -85,7 +85,7 @@ class IntroScreen extends StatelessWidget {
                           fontWeight: FontWeight.w800
                         ),),
                         Icon(Icons.arrow_right_alt,
-                        weight: 800,)
+                        )
                       ],
                     ),
                   )),
