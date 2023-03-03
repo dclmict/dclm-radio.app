@@ -21,7 +21,7 @@ class DCLMRadioApp extends StatelessWidget {
       // debugShowCheckedModeBanner: false,
       title: 'DCLM Radio',
       theme: AppTheme.theme(),
-      home: const LogoScreen(),
+      home: const Home(),
     );
   }
 }
