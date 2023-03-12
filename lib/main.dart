@@ -2,8 +2,8 @@ import 'package:dclm_radio/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'views/splash screen/logo_screen.dart';
-import 'views/splash screen/splash_main.dart';
+import 'views/splash_screen/logo_screen.dart';
+import 'views/splash_screen/splash_main.dart';
 
 void main() {
   runApp(const DCLMRadioApp());
@@ -21,7 +21,7 @@ class DCLMRadioApp extends StatelessWidget {
       // debugShowCheckedModeBanner: false,
       title: 'DCLM Radio',
       theme: AppTheme.theme(),
-      home: const Home(),
+      home: const SplashMain(),
     );
   }
 }
