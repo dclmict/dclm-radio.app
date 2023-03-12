@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'views/splash_screen/logo_screen.dart';
-import 'views/splash_screen/splash_main.dart';
+import 'views/splash_screen/intro_main.dart';
 
 void main() {
   runApp(const DCLMRadioApp());
