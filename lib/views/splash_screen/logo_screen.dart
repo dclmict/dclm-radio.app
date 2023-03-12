@@ -18,7 +18,9 @@ class LogoScreen extends StatelessWidget {
               Container(
                 height: 134,
                 width: 134,
-                child: Image.asset('images/dclmlogo.png'),
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage('images/dclmlogo.png'),)
+                ),
               ),
               //DLCM Radio App text
               Text('DCLM Radio App',

@@ -66,6 +66,33 @@ class IntroScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 10,),
+                SizedBox(
+                  height: 5,
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 5,
+                          margin: EdgeInsets.symmetric(horizontal: 2.5),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 5,
+                          margin: EdgeInsets.symmetric(horizontal: 2.5),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 5,
+                          margin: EdgeInsets.symmetric(horizontal: 2.5),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 SizedBox(height: 25,),
                 //button
                 Padding(

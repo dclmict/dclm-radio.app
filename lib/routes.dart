@@ -1,5 +1,5 @@
-import 'package:dclm_radio/views/splash%20screen/logo_screen.dart';
-import 'package:dclm_radio/views/splash%20screen/splash_main.dart';
+import 'package:dclm_radio/views/splash_screen/logo_screen.dart';
+import 'package:dclm_radio/views/splash_screen/splash_main.dart';
 import 'package:flutter/material.dart';
 
 class RouteGeneration{
