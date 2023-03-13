@@ -1,6 +1,5 @@
 import 'package:dclm_radio/core_widget.dart';
 import 'package:dclm_radio/routes/route_path.dart';
-import 'package:dclm_radio/signUp_Phone.dart';
 import 'package:dclm_radio/utils/icons.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +11,7 @@ class LoginPhoneScreen extends StatefulWidget {
 }
 
 class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
+  bool _isHidden = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,14 +50,26 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                 CustomTextField(
                   text: 'Phone Number',
                   hintText: 'Email',
-                   prefixIcon:  Image.asset(AppAssetsIcons.message), 
+                  prefixIcon: Image.asset(AppAssetsIcons.message),
                 ),
-                SizedBox(height: 30),
+               const SizedBox(height: 30),
                 /* <---- Password text field ----> */
                 CustomTextField(
                   text: 'Password',
                   hintText: 'Password',
-                  prefixIcon:  Image.asset(AppAssetsIcons.lock),suffixIcon: Image.asset(AppAssetsIcons.eyeView),
+                  prefixIcon: Image.asset(AppAssetsIcons.lock),
+                  suffixIcon: IconButton(
+                      padding: EdgeInsets.zero,
+                      visualDensity: const VisualDensity(
+                          horizontal: VisualDensity.minimumDensity,
+                          vertical: VisualDensity.minimumDensity),
+                      color: Colors.transparent,
+                      /* <---- Hide  Password  ----> */
+                      onPressed: _visiblePassword,
+                      icon: Image.asset(AppAssetsIcons.eyeView,
+                          color: _isHidden
+                              ? Colors.white
+                              : const Color(0xFFFF6687))),
                 ),
                 const SizedBox(height: 30),
                 /* <---- forgotten Password text field ----> */
@@ -71,6 +83,7 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                         color: Color(0xFFFF6687)),
                   ),
                 ),
+                  /* <---- LogIn Button ----> */
                 const SizedBox(height: 80),
                 Center(
                   child: CustomElevatedButton(
@@ -79,6 +92,7 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                     onPressed: _signUpScreen,
                   ),
                 ),
+                   /* <---- SignUp Button ----> */
                 const SizedBox(height: 40),
                 GestureDetector(
                   onTap: _signUpScreen,
@@ -96,6 +110,18 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
             ),
           ),
         ));
+  }
+
+  void _visiblePassword() {
+    setState(() {
+      //refresh UI
+      if (_isHidden) {
+        //if passenable == true, make it false
+        _isHidden = false;
+      } else {
+        _isHidden = true; //if passenable == false, make it true
+      }
+    });
   }
 
   void _getEmail() {

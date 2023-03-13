@@ -40,29 +40,37 @@ class _PhoneSignUpFormScreenState extends State<PhoneSignUpFormScreen> {
                 CustomTextField(
                   text: 'First Name',
                   hintText: 'First Name',
-                   prefixIcon: Image.asset(AppAssetsIcons.profile), 
+                  prefixIcon: Image.asset(AppAssetsIcons.profile),
                 ),
                 SizedBox(height: 30),
                 /* <---- Surname text field ----> */
                 CustomTextField(
                   text: 'Surname',
                   hintText: 'Surname',
-                   prefixIcon: Image.asset(AppAssetsIcons.profile), 
+                  prefixIcon: Image.asset(AppAssetsIcons.profile),
                 ),
                 const SizedBox(height: 30),
                 /* <---- Date of birth text field ----> */
                 CustomTextField(
                   text: 'Date of Birth',
                   hintText: 'DD/MM/YY',
-                   prefixIcon: Image.asset(AppAssetsIcons.calendar), 
+                  prefixIcon: Image.asset(AppAssetsIcons.calendar),
                 ),
                 const SizedBox(height: 30),
                 /* <---- Gender selector ----> */
+                const SizedBox(
+                  height: 20,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(15, 3, 3, 0),
+                    child: Text("What's your gender?"),
+                  ),
+                ),
+                const SizedBox(height: 10),
                 GenderSelector(
                   secondText: 'Female',
-                  firstText: 'Male', 
+                  firstText: 'Male',
                 ),
-                const SizedBox(height: 80),
+                const SizedBox(height: 50),
                 Center(
                   child: CustomElevatedButton(
                     text: 'Next',

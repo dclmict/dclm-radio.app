@@ -31,6 +31,7 @@ class _ForgotPassPhoneScreenState extends State<ForgotPassPhoneScreen> {
                   },
                   icon: Image.asset(AppAssetsIcons.backArrow)),
               const SizedBox(height: 10),
+              /* <---- Forget  Password with phone number  ----> */
               const Text(
                 'Forgot Password',
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 24),
@@ -46,9 +47,10 @@ class _ForgotPassPhoneScreenState extends State<ForgotPassPhoneScreen> {
               CustomTextField(
                 text: 'Reset Pin',
                 hintText: 'Reset Pin',
-              prefixIcon:  Image.asset(AppAssetsIcons.numeric), 
+                prefixIcon: Image.asset(AppAssetsIcons.numeric),
               ),
               const SizedBox(height: 300),
+              /* <---- Next Botton  ----> */
               Center(
                 child: CustomElevatedButton(
                   text: 'Next',

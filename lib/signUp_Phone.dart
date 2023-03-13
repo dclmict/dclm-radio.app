@@ -1,6 +1,5 @@
 import 'package:dclm_radio/core_widget.dart';
 import 'package:dclm_radio/routes/route_path.dart';
-import 'package:dclm_radio/signUp_screen.dart';
 import 'package:dclm_radio/utils/icons.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +11,7 @@ class SignupWithPhone extends StatefulWidget {
 }
 
 class _SignupWithPhoneState extends State<SignupWithPhone> {
+  bool _isHidden = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,29 +45,39 @@ class _SignupWithPhoneState extends State<SignupWithPhone> {
                   secondIcon: Image.asset(AppAssetsIcons.phone),
                 ),
                 const SizedBox(height: 40),
-       /* <---- Phone Number field ----> */
+                /* <---- Phone Number field ----> */
                 CustomTextField(
                   text: 'Phone Number',
                   hintText: 'Email',
                   prefixIcon: Image.asset(AppAssetsIcons.message),
-                 
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 /* <---- Password text field ----> */
                 CustomTextField(
                   text: 'Password',
                   hintText: 'Password',
                   prefixIcon: Image.asset(AppAssetsIcons.lock),
-                  suffixIcon: Image.asset('assets/icons/eye_View.png'),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 /* <---- Confirm Password text field ----> */
                 CustomTextField(
                   text: 'Confirm Password',
                   hintText: 'Confirm Password',
                   prefixIcon: Image.asset(AppAssetsIcons.tickLock),
-                  suffixIcon: Image.asset(AppAssetsIcons.eyeView),
+                  suffixIcon: IconButton(
+                      padding: EdgeInsets.zero,
+                      visualDensity: const VisualDensity(
+                          horizontal: VisualDensity.minimumDensity,
+                          vertical: VisualDensity.minimumDensity),
+                      color: Colors.transparent,
+                      /* <---- Hide  Password  ----> */
+                      onPressed: _visiblePassword,
+                      icon: Image.asset(AppAssetsIcons.eyeView,
+                          color: _isHidden
+                              ? Colors.white
+                              : const Color(0xFFFF6687))),
                 ),
+                /* <---- Next Button  ----> */
                 const SizedBox(height: 80),
                 Center(
                   child: CustomElevatedButton(
@@ -76,6 +86,7 @@ class _SignupWithPhoneState extends State<SignupWithPhone> {
                     onPressed: _phoneForm,
                   ),
                 ),
+                /* <---- Skip button  ----> */
                 const SizedBox(height: 40),
                 const Center(
                   child: Text(
@@ -90,6 +101,18 @@ class _SignupWithPhoneState extends State<SignupWithPhone> {
             ),
           ),
         ));
+  }
+
+  void _visiblePassword() {
+    setState(() {
+      //refresh UI
+      if (_isHidden) {
+        //if passenable == true, make it false
+        _isHidden = false;
+      } else {
+        _isHidden = true; //if passenable == false, make it true
+      }
+    });
   }
 
   void _phoneForm() {

@@ -31,6 +31,7 @@ class _ForgotPassEmailScreenState extends State<ForgotPassEmailScreen> {
                         },
                         icon: Image.asset(AppAssetsIcons.backArrow)),
                     const SizedBox(height: 10),
+                     /* <---- Forget password with Email Screen ----> */
                     const Text(
                       'Forgot Password',
                       style: TextStyle(
@@ -42,7 +43,7 @@ class _ForgotPassEmailScreenState extends State<ForgotPassEmailScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 16),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
 
                     /* <---- Reset Pin field ----> */
                     CustomTextField(
@@ -50,7 +51,8 @@ class _ForgotPassEmailScreenState extends State<ForgotPassEmailScreen> {
                       hintText: 'Reset Pin',
                      prefixIcon:  Image.asset(AppAssetsIcons.numeric), 
                     ),
-                    SizedBox(height: 300),
+                    const SizedBox(height: 300),
+                     /* <---- Next Button  ----> */
                     Center(
                       child: CustomElevatedButton(
                         text: 'Next',

@@ -11,6 +11,7 @@ class ChooseNewPassScreen extends StatefulWidget {
 }
 
 class _ChooseNewPassScreenState extends State<ChooseNewPassScreen> {
+  bool _isHidden = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,22 +41,31 @@ class _ChooseNewPassScreenState extends State<ChooseNewPassScreen> {
                   style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
                 ),
                 const SizedBox(height: 60),
-                /* <---- Password text field ----> */
+                /* <---- New Password text field ----> */
                 CustomTextField(
                   text: 'New Password',
                   hintText: 'New Password',
                   prefixIcon: Image.asset(AppAssetsIcons.lock),
-                  suffixIcon: Image.asset(AppAssetsIcons.eyeView),
                 ),
                 const SizedBox(height: 30),
                 /* <---- Confirm Password text field ----> */
                 CustomTextField(
-                  text: 'Confirm Password',
-                  hintText: 'Confirm Password',
-                  prefixIcon: Image.asset(AppAssetsIcons.lock),
-                  suffixIcon: Image.asset(AppAssetsIcons.eyeView),
-                ),
-                const SizedBox(height: 150),
+                    text: 'Confirm Password',
+                    hintText: 'Confirm Password',
+                    prefixIcon: Image.asset(AppAssetsIcons.lock),
+                    suffixIcon: IconButton(
+                        padding: EdgeInsets.zero,
+                        visualDensity: const VisualDensity(
+                            horizontal: VisualDensity.minimumDensity,
+                            vertical: VisualDensity.minimumDensity),
+                        color: Colors.transparent,
+                        /* <---- Hide  Password  ----> */
+                        onPressed: _visiblePassword,
+                        icon: Image.asset(AppAssetsIcons.eyeView,
+                            color: _isHidden
+                                ? Colors.white
+                                : const Color(0xFFFF6687)))),
+                SizedBox(height: 150),
                 Center(
                   child: CustomElevatedButton(
                     text: 'Reset Password',
@@ -71,5 +81,17 @@ class _ChooseNewPassScreenState extends State<ChooseNewPassScreen> {
 
   void _successScreen() {
     RoutePaths.resetSuccessPass();
+  }
+
+  void _visiblePassword() {
+    setState(() {
+      //refresh UI
+      if (_isHidden) {
+        //if passenable == true, make it false
+        _isHidden = false;
+      } else {
+        _isHidden = true; //if passenable == false, make it true
+      }
+    });
   }
 }

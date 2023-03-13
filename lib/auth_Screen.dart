@@ -28,6 +28,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   },
                   icon: Image.asset(AppAssetsIcons.backArrow)),
               const SizedBox(height: 10),
+              /* <---- Text Widgegt  ----> */
               const Text(
                 'Log in/Sign up required',
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 24),
@@ -38,6 +39,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
               ),
               const SizedBox(height: 60),
+              /* <---- LogIn Button----> */
               const Center(
                 child: Text(
                   ' Got an account already? Log in to continue',
@@ -53,6 +55,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ),
               const SizedBox(height: 60),
+              /* <---- SignUp Button  ----> */
               const Center(
                 child: Text(
                   ' New here? Create an account to continue',

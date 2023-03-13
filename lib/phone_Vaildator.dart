@@ -28,6 +28,7 @@ class _PhoneVaildatorState extends State<PhoneVaildator> {
                   },
                   icon: Image.asset(AppAssetsIcons.backArrow)),
               const SizedBox(height: 10),
+              /* <---- Phone number verification screen  ----> */
               const Text(
                 'Verify Phone Number',
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 24),
@@ -37,15 +38,16 @@ class _PhoneVaildatorState extends State<PhoneVaildator> {
                 'An OTP has been sent to your phone number, Kindly input it below',
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
-              /* <---- Email text field ----> */
+              /* <---- Phone number field ----> */
               CustomTextField(
                 text: 'Phone Number',
                 hintText: 'Phone Number',
-             prefixIcon:  Image.asset(AppAssetsIcons.numeric), 
+                prefixIcon: Image.asset(AppAssetsIcons.numeric),
               ),
-              SizedBox(height: 300),
+              const SizedBox(height: 300),
+              /* <---- Next button ----> */
               Center(
                 child: CustomElevatedButton(
                   text: 'Next',

@@ -1,4 +1,3 @@
-import 'package:dclm_radio/auth_Screen.dart';
 import 'package:dclm_radio/core_widget.dart';
 import 'package:dclm_radio/routes/route_path.dart';
 import 'package:dclm_radio/utils/icons.dart';
@@ -38,15 +37,16 @@ class _EmailValidatorScreenState extends State<EmailValidatorScreen> {
                 'An OTP has been sent to your email address. Kindly input it below',
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
-              /* <---- Email text field ----> */
+              /* <---- Email Address text field ----> */
               CustomTextField(
-                text: 'Email',
-                hintText: 'Email',
-               prefixIcon: Image.asset(AppAssetsIcons.numeric), 
+                text: 'Email Address',
+                hintText: 'Email Address',
+                prefixIcon: Image.asset(AppAssetsIcons.numeric),
               ),
-              SizedBox(height: 300),
+              const SizedBox(height: 300),
+              /* <---- Next Button  ----> */
               Center(
                 child: CustomElevatedButton(
                   text: 'Next',
@@ -56,7 +56,8 @@ class _EmailValidatorScreenState extends State<EmailValidatorScreen> {
               )
             ])));
   }
-    void _authScreen() {
+
+  void _authScreen() {
     RoutePaths.authScreen();
   }
 }

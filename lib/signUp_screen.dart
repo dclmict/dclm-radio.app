@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:dclm_radio/core_widget.dart';
 import 'package:dclm_radio/routes/route_path.dart';
 import 'package:dclm_radio/utils/icons.dart';
-import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -11,6 +12,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  bool _isHidden = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,24 +53,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 CustomTextField(
                   text: 'Email',
                   hintText: 'Email',
-                  prefixIcon: Image.asset(AppAssetsIcons.message), 
-                  
+                  prefixIcon: Image.asset(AppAssetsIcons.message),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 /* <---- Password text field ----> */
                 CustomTextField(
                   text: 'Password',
                   hintText: 'Password',
                   prefixIcon: Image.asset(AppAssetsIcons.lock),
-                  suffixIcon: Image.asset(AppAssetsIcons.eyeView),
+                  passwordField: _isHidden,
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 /* <---- Confirm Password text field ----> */
                 CustomTextField(
                   text: 'Confirm Password',
                   hintText: 'Confirm Password',
+                  passwordField: _isHidden,
                   prefixIcon: Image.asset(AppAssetsIcons.tickLock),
-                  suffixIcon: Image.asset(AppAssetsIcons.eyeView),
+                  suffixIcon: IconButton(
+                      padding: EdgeInsets.zero,
+                      visualDensity: const VisualDensity(
+                          horizontal: VisualDensity.minimumDensity,
+                          vertical: VisualDensity.minimumDensity),
+                      color: Colors.transparent,
+                      /* <---- Hide  Password  ----> */
+                      onPressed: _visiblePassword,
+                      icon: Image.asset(AppAssetsIcons.eyeView,
+                          color: _isHidden ? Colors.white : const Color(0xFFFF6687))),
                 ),
                 const SizedBox(height: 80),
                 Center(
@@ -94,6 +106,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
         ));
+  }
+
+  void _visiblePassword() {
+    setState(() {
+      //refresh UI
+      if (_isHidden) {
+        //if passenable == true, make it false
+        _isHidden = false;
+      } else {
+        _isHidden = true; //if passenable == false, make it true
+      }
+    });
   }
 
   void _signinEmail() {

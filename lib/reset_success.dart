@@ -40,6 +40,7 @@ class _ResetSuccessPassScreenState extends State<ResetSuccessPassScreen> {
                       ),
                     ),
                     const SizedBox(height: 450),
+                     /* <---- LogIn Button  ----> */
                     Center(
                       child: CustomElevatedButton(
                         text: 'Log in',

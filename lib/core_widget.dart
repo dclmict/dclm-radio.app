@@ -1,5 +1,6 @@
-import 'package:dclm_radio/utils/icons.dart';
 import 'package:flutter/material.dart';
+
+import 'package:dclm_radio/utils/icons.dart';
 
 /// Custom Twin Button  widget configured with Theme.
 class CustomTwinButtonWidget extends StatelessWidget {
@@ -43,7 +44,7 @@ class CustomTwinButtonWidget extends StatelessWidget {
           GestureDetector(
             onTap: onFirstButtonTap,
             child: Container(
-              width: 171.0,
+              width: MediaQuery.of(context).size.width * 0.48,
               padding: const EdgeInsets.all(8),
               color: onSecondButtonTap == null
                   ? Colors.white.withOpacity(0.15)
@@ -60,7 +61,7 @@ class CustomTwinButtonWidget extends StatelessWidget {
           GestureDetector(
             onTap: onSecondButtonTap,
             child: Container(
-              width: 171.0,
+              width: MediaQuery.of(context).size.width * 0.47,
               padding: const EdgeInsets.all(8),
               color: onSecondButtonTap == null
                   ? const Color(0xFFFF6687)
@@ -106,25 +107,27 @@ class CustomElevatedButton extends StatelessWidget {
 
 /// Custom TextFormField configured with Theme.
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
+  final bool passwordField;
   final String text;
-  final void Function()? setState;
   final String? hintText;
   final Widget? prefixIcon;
-  final Image? suffixIcon;
-  final bool isPasswordTextField;
+  final Widget? suffixIcon;
 
-  CustomTextField(
-      {super.key,
-      this.hintText,
-      this.prefixIcon,
-      this.suffixIcon,
-      this.isPasswordTextField = false,
-      required this.text,
-      this.setState});
+  CustomTextField({
+    Key? key,
+    this.passwordField = false,
+    required this.text,
+    this.hintText,
+    this.prefixIcon,
+    this.suffixIcon,
+  }) : super(key: key);
 
-  bool _isHidden = true;
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
 
+class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -134,7 +137,7 @@ class CustomTextField extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 12),
           child: Text(
-            text,
+            widget.text,
             style: const TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 16,
@@ -152,21 +155,18 @@ class CustomTextField extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(color: Color(0xFFFF6687), width: 4))),
               child: Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(4),
                 child: TextField(
-                  obscureText: _isHidden,
+                  obscureText: widget.passwordField,
                   decoration: InputDecoration(
-                    hintText: hintText,
-                   
-                    suffixIcon: IconButton(
-                        padding: EdgeInsets.zero,
-                        visualDensity: const VisualDensity(
-                            horizontal: VisualDensity.minimumDensity,
-                            vertical: VisualDensity.minimumDensity),
-                        color: Colors.transparent,
-                        onPressed: () {},
-                        icon: suffixIcon),
-                    prefixIcon: prefixIcon,
+                    hintText: widget.hintText,
+                    prefixIcon: widget.prefixIcon,
+                    suffixIcon: widget.suffixIcon != null
+                        ? Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: widget.suffixIcon,
+                          )
+                        : null,
                     errorBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,
