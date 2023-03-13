@@ -38,61 +38,7 @@ class IntroScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 20),
                   textAlign: TextAlign.center,),
                 ),
-                SizedBox(height: 10,),
-                //page indicator
-                SizedBox(
-                  height: 5,
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 5,
-                          margin: EdgeInsets.symmetric(horizontal: 2.5),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 5,
-                          margin: EdgeInsets.symmetric(horizontal: 2.5),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 5,
-                          margin: EdgeInsets.symmetric(horizontal: 2.5),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10,),
-                SizedBox(
-                  height: 5,
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 5,
-                          margin: EdgeInsets.symmetric(horizontal: 2.5),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 5,
-                          margin: EdgeInsets.symmetric(horizontal: 2.5),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 5,
-                          margin: EdgeInsets.symmetric(horizontal: 2.5),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+
                 SizedBox(height: 25,),
                 //button
                 Padding(
